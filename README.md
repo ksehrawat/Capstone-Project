@@ -10,7 +10,7 @@ The main objective of the project was predict house prices for the California, N
 ## Data Exploration and Cleaning
 ### Initial Dataset:
 
-* Rows: 47,547
+* Rows: 66,577
 
 * Columns: 50
 
