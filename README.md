@@ -8,7 +8,14 @@ The main objective of the project was to explore house prices for the California
 
 ### Data Files
 
+* Initial Dataset: NewRedfinDataSet.csv
+* Cleaned Dataset: Redfin_df_cleaned.csv
+* Dataset with Prediction (Decision Tree Model): Redfin_df_with_decision_tree_predictions.csv
+* Dataset with Prediction (Random Forst Model): Redfin_df_with_predictions_random_forest.csv
+
 ### Code File
+
+* Juiter Notebook:
 
 ## DataSet
 
