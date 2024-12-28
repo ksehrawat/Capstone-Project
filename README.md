@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The main objective of the project was predict house prices for the California, New York, and texas state using advanced machine learning models and analyze market trends for actionable insights. The project also aimed to forecast future house prices using advance machine learning models.
+The main objective of the project was to explore house prices for the California, New York, and Texas states and analyze market trends for actionable insights. The project also aimed to forecast future house prices using advance machine learning models.
 
 ## DataSet
 
