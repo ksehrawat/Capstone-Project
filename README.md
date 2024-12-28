@@ -6,6 +6,8 @@ The main objective of the project was predict house prices for the California, N
 
 ## DataSet
 
+Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/news/data-center/) and then data was filetered furtner up to focus on the 3 states i.e. California, New York , and Texas.
+
 
 ## Data Exploration and Cleaning
 ### Initial Dataset:
