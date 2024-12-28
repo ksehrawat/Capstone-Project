@@ -13,9 +13,9 @@ The main objective of the project was to explore house prices for the California
 * Dataset with Prediction (Decision Tree Model): Redfin_df_with_decision_tree_predictions.csv
 * Dataset with Prediction (Random Forst Model): Redfin_df_with_predictions_random_forest.csv
 
-### Code File
+### Python Code File
 
-* Juiter Notebook:
+* Juiter Notebook: Capstone.ipynb
 
 ## DataSet
 
