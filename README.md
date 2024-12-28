@@ -30,9 +30,9 @@ Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/ne
 
 * Columns: 50
 
-# Modeling Results
+## Modeling Results
 
-## 1. Linear Regression:
+### 1. Linear Regression:
 
 * RMSE: $169,626
 
@@ -40,7 +40,7 @@ Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/ne
 
 * Linear model performed well but lacked the ability to capture non-linear relationships.
 
-## 2. Ridge and Lasso Regression:
+### 2. Ridge and Lasso Regression:
 
 * Ridge RMSE: $169,637, R²: 0.725
 
@@ -48,7 +48,7 @@ Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/ne
 
 * Regularization reduced feature noise but did not improve performance over Random Forest.
 
-## 3. Decision Tree:
+### 3. Decision Tree:
 
 * RMSE: $80,617
 
@@ -56,7 +56,7 @@ Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/ne
 
 * Offered interpretable results but showed signs of overfitting.
 
-## 4. Random Forest:
+### 4. Random Forest:
 
 * RMSE: $46,503
 
