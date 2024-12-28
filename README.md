@@ -43,6 +43,8 @@ Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/ne
 
 * Columns: 50
 
+## Data Visualization
+
 ## Modeling Results
 
 ### 1. Linear Regression:
