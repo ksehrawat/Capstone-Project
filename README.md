@@ -409,7 +409,22 @@ plt.show()
 ```
 <img width="1006" alt="Screenshot 2025-02-24 at 9 13 58 PM" src="https://github.com/user-attachments/assets/116e51b7-2525-4334-86c4-18bb0e9375db" />
 
+#### Visualization 10: Correlation Heatmap
+```python
+# Visualization 10: Correlation Heatmap
 
+# Extract only numerical columns for correlation analysis
+numerical_columns = Redfin_df_cleaned.select_dtypes(include=['float64', 'int64'])
+filtered_numerical_columns = numerical_columns.drop(columns=['table_id', 'region_type_id', 'ZipCode', 'property_type_id', 'parent_metro_region_metro_code'], errors='ignore')
 
+# Compute correlation matrix for numerical columns
+numerical_corr_matrix = numerical_columns.corr()
 
+# Plot the heatmap
+plt.figure(figsize=(12, 10))
+sns.heatmap(numerical_corr_matrix, cmap="coolwarm", annot=False, cbar=True)
+plt.title("Correlation Heatmap for Numerical Features")
+plt.show()
+```
+<img width="877" alt="Screenshot 2025-02-24 at 9 16 41 PM" src="https://github.com/user-attachments/assets/eeb26f5c-e78a-42f8-8175-c9a8a8367c51" />
 
