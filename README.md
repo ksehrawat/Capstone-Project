@@ -449,3 +449,41 @@ plt.show()
 **Irrelevant or Weak Correlations:**
 * Metrics like off_market_in_two_weeks and its derivatives have little correlation with median_sale_price, suggesting limited predictive value for these features.
 
+#### Identify key correlations with `median_sale_price`
+```python
+# Identify key correlations with `median_sale_price`
+key_correlations = numerical_corr_matrix['median_sale_price'].sort_values(ascending=False).iloc[1:6]
+
+# Scatter plots for key correlations
+for feature in key_correlations.index:
+    plt.figure(figsize=(12, 8))
+    sns.scatterplot(data=numerical_columns, x=feature, y='median_sale_price', alpha=0.6)
+    plt.title(f"Scatter Plot: {feature} vs Median Sale Price")
+    plt.xlabel(feature)
+    plt.ylabel("Median Sale Price")
+    plt.grid(True)
+    plt.show()
+```
+
+#### Identify top features based on correlation with `median_sale_price`
+```python
+# Identify top features based on correlation with `median_sale_price`
+correlations_with_target = numerical_corr_matrix['median_sale_price'].sort_values(ascending=False)
+
+# Select the top 10 features most correlated with `median_sale_price` (excluding itself)
+top_features = correlations_with_target.iloc[1:11]
+
+# Display the top features
+top_features
+```
+	median_sale_price
+median_list_price	0.900696
+avg_sale_to_list	0.209713
+ZipCode	0.203657
+parent_metro_region_metro_code	0.199559
+table_id	0.190338
+sold_above_list	0.179736
+median_ppsf	0.083761
+property_type_id	0.061938
+median_list_ppsf	0.051634
+off_market_in_two_weeks	0.046503
