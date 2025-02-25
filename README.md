@@ -524,3 +524,44 @@ rmse_updated, r2_updated
 * Root Mean Squared Error (RMSE): $169,626.27 (indicates the average prediction error in monetary terms).
 * R² Score: 0.725 (72.5% of the variance in house prices is explained by the model).
 
+#### Feature Engineering on the selected Features
+```python
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+
+# Perform feature engineering on the selected features
+
+# 1. Interaction terms: Create new features combining related columns
+X['list_price_ppsf_interaction'] = X['median_list_price'] * X['median_list_ppsf']
+X['sale_to_list_interaction'] = X['avg_sale_to_list'] * X['sold_above_list']
+
+# 2. Log transformation: Handle skewed features
+X['log_median_list_price'] = np.log1p(X['median_list_price'])
+X['log_median_ppsf'] = np.log1p(X['median_ppsf'])
+
+# 3. Standardize the features for uniform scaling
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+X_scaled = pd.DataFrame(X_scaled, columns=X.columns)
+
+# Split the data into training and testing sets again
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# Re-train the linear regression model with engineered features
+linear_model = LinearRegression()
+linear_model.fit(X_train, y_train)
+
+# Make predictions with the updated model
+y_pred = linear_model.predict(X_test)
+
+# Evaluate the improved model
+rmse_improved = mean_squared_error(y_test, y_pred) ** 0.5
+r2_improved = r2_score(y_test, y_pred)
+
+rmse_improved, r2_improved
+```
+#### The feature engineering process led to a significant decline in model performance:
+* Root Mean Squared Error (RMSE): $1,180,907.16 (higher than before, indicating larger errors).
+* R² Score: -12.32 (negative, suggesting the model is failing to explain variance).
+
+
