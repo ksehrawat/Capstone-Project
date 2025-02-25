@@ -305,7 +305,7 @@ plt.show()
 ```
 <img width="1076" alt="Screenshot 2025-02-24 at 8 58 08 PM" src="https://github.com/user-attachments/assets/a7908efc-de08-46ee-ab7a-30a66d6e7f98" />
 
-#### Visualization 2: Median Sale Price vs Homes Sold
+#### Visualization 3: Median Sale Price vs Homes Sold
 ```python
 # Visualization 3: Median Sale Price vs Homes Sold
 plt.figure(figsize=(10, 6))
@@ -337,7 +337,18 @@ plt.show()
 ```
 <img width="1075" alt="Screenshot 2025-02-24 at 9 05 51 PM" src="https://github.com/user-attachments/assets/9613471b-e03c-4677-a738-4fd57d507b1f" />
 
-
+#### Visualization 5: Boxplot of Median Sale Price by Property Type
+```python
+# Visualization 5: Boxplot of Median Sale Price by Property Type
+plt.figure(figsize=(12, 8))
+sns.boxplot(data=Redfin_df_cleaned, x='property_type', y='median_sale_price', palette="Set3",legend=False, hue = 'property_type')
+plt.title("Median Sale Price by Property Type")
+plt.xlabel("Property Type")
+plt.ylabel("Median Sale Price")
+plt.xticks(rotation=45)
+plt.show()
+```
+<img width="920" alt="Screenshot 2025-02-24 at 9 07 54 PM" src="https://github.com/user-attachments/assets/c57026cf-8699-41fa-a5b0-d4b3cd50ea35" />
 
 
 
