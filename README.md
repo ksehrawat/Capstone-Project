@@ -492,3 +492,35 @@ Based on their correlation with median_sale_price, the top features are:
 * median_dom_yoy: Year-over-year change in days on the market, showing shifts in market dynamics.
 * homes_sold: A measure of market activity and absorption.
 * new_listings: Supply-side indicator for available inventory.
+
+### Models
+
+#### 1. Linear Regression Model
+
+```python
+selected_features = ['median_list_price', 'avg_sale_to_list', 'sold_above_list',
+                     'median_ppsf', 'median_list_ppsf', 'off_market_in_two_weeks',
+                     'median_sale_price_mom', 'median_dom_yoy', 'homes_sold', 'new_listings']
+X = Redfin_df_cleaned[selected_features]
+y = Redfin_df_cleaned['median_sale_price']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize and train the linear regression model
+linear_model = LinearRegression()
+linear_model.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = linear_model.predict(X_test)
+
+# Evaluate the model
+rmse_updated = mean_squared_error(y_test, y_pred)** 0.5
+r2_updated = r2_score(y_test, y_pred)
+
+rmse_updated, r2_updated
+```
+#### The linear regression model has been built and evaluated:
+* Root Mean Squared Error (RMSE): $169,626.27 (indicates the average prediction error in monetary terms).
+* R² Score: 0.725 (72.5% of the variance in house prices is explained by the model).
+
