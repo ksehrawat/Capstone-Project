@@ -119,36 +119,36 @@ Descriptive Statistics for Numeric Columns:
 Object Column Summaries:
 
 Column: period_begin
-  Number of distinct values: 42
-  Most frequent value: 7/1/21
+Number of distinct values: 42
+Most frequent value: 7/1/21
 
 Column: period_end
-  Number of distinct values: 42
-  Most frequent value: 9/30/21
+Number of distinct values: 42
+Most frequent value: 9/30/21
 
 Column: region_type
-  Number of distinct values: 1
-  Most frequent value: zip code
+Number of distinct values: 1
+Most frequent value: zip code
 
 Column: is_seasonally_adjusted
-  Number of distinct values: 1
-  Most frequent value: f
+Number of distinct values: 1
+Most frequent value: f
 
 Column: state
-  Number of distinct values: 3
-  Most frequent value: California
+Number of distinct values: 3
+Most frequent value: California
 
 Column: state_code
-  Number of distinct values: 3
-  Most frequent value: CA
+Number of distinct values: 3
+Most frequent value: CA
 
 Column: property_type
-  Number of distinct values: 5
-  Most frequent value: All Residential
+Number of distinct values: 5
+Most frequent value: All Residential
 
 Column: parent_metro_region
-  Number of distinct values: 136
-  Most frequent value: Los Angeles, CA
+Number of distinct values: 136
+Most frequent value: Los Angeles, CA
 
 ### Initial Dataset:
 
