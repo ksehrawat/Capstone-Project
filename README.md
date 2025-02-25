@@ -280,7 +280,15 @@ Redfin_df_cleaned.to_csv(export_path, index=False)
 * Columns: 50
 
 ## Data Visualization
-
+```python
+# Visualization 1: Distribution of Median Sale Price
+plt.figure(figsize=(10, 6))
+sns.histplot(Redfin_df_cleaned['median_sale_price'], kde=True, bins=30, color='blue')
+plt.title("Distribution of Median Sale Price")
+plt.xlabel("Median Sale Price")
+plt.ylabel("Frequency")
+plt.show()
+```
 
 
 
