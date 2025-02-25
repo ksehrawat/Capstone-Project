@@ -280,6 +280,7 @@ Redfin_df_cleaned.to_csv(export_path, index=False)
 * Columns: 50
 
 ## Data Visualization
+### Distribution of Median Sale Price
 ```python
 # Visualization 1: Distribution of Median Sale Price
 plt.figure(figsize=(10, 6))
