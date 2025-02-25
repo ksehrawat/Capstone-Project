@@ -476,14 +476,19 @@ top_features = correlations_with_target.iloc[1:11]
 # Display the top features
 top_features
 ```
-	median_sale_price
-median_list_price	0.900696
-avg_sale_to_list	0.209713
-ZipCode	0.203657
-parent_metro_region_metro_code	0.199559
-table_id	0.190338
-sold_above_list	0.179736
-median_ppsf	0.083761
-property_type_id	0.061938
-median_list_ppsf	0.051634
-off_market_in_two_weeks	0.046503
+<img width="422" alt="Screenshot 2025-02-24 at 9 25 14 PM" src="https://github.com/user-attachments/assets/06e2c212-5672-4e8c-96d2-66e3a408b4ef" />
+
+#### Top Features for Modeling:
+
+Based on their correlation with median_sale_price, the top features are:
+
+* median_list_price: (Correlation: 0.90) The strongest predictor of sale prices.
+* avg_sale_to_list: Indicates how closely sale prices match listing prices.
+* sold_above_list: Reflects competitive markets where properties sell above the asking price.
+* median_ppsf: Price per square foot, an essential metric for value estimation.
+* median_list_ppsf: Listed price per square foot, a precursor for market valuation.
+* off_market_in_two_weeks: Percentage of properties off the market quickly, indicating high demand.
+* median_sale_price_mom: Month-over-month change in sale prices, indicating trends.
+* median_dom_yoy: Year-over-year change in days on the market, showing shifts in market dynamics.
+* homes_sold: A measure of market activity and absorption.
+* new_listings: Supply-side indicator for available inventory.
