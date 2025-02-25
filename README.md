@@ -292,6 +292,20 @@ plt.show()
 ```
 <img width="879" alt="Screenshot 2025-02-24 at 8 55 59 PM" src="https://github.com/user-attachments/assets/20e0be76-2759-4592-99f3-0f03a532bc4a" />
 
+### Median Sale Price by State
+```python
+# Visualization 2: Median Sale Price by State
+plt.figure(figsize=(12, 8))
+state_price = Redfin_df_cleaned.groupby('state')['median_sale_price'].median().sort_values()
+sns.barplot(y=state_price.index, x=state_price.values, palette="viridis", legend=False, hue = state_price.index)
+plt.title("Median Sale Price by State")
+plt.xlabel("Median Sale Price")
+plt.ylabel("State")
+plt.show()
+```
+<img width="1076" alt="Screenshot 2025-02-24 at 8 58 08 PM" src="https://github.com/user-attachments/assets/a7908efc-de08-46ee-ab7a-30a66d6e7f98" />
+
+
 
 
 
