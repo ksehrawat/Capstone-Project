@@ -34,7 +34,7 @@ print(Redfin_df.head().to_markdown(index=False, numalign="left", stralign="left"
 Redfin_df.info()
 ```
 Data columns (total 50 columns):
- #   Column                          Non-Null Count   Dtype  
+     Column                          Non-Null Count   Dtype  
 ---  ------                          --------------   -----  
  0   period_begin                    66577 non-null   object 
  1   period_end                      66577 non-null   object 
