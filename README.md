@@ -17,7 +17,7 @@ How can we leverage historical housing data and machine learning models to accur
 
 ### Python Code File
 
-* Juiter Notebook: Capstone.ipynb
+* Juiter Notebook: Capstone1.ipynb
 
 ## DataSet
 
