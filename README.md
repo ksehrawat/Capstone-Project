@@ -305,6 +305,20 @@ plt.show()
 ```
 <img width="1076" alt="Screenshot 2025-02-24 at 8 58 08 PM" src="https://github.com/user-attachments/assets/a7908efc-de08-46ee-ab7a-30a66d6e7f98" />
 
+### Visualization 2: Median Sale Price vs Homes Sold
+```python
+# Visualization 3: Median Sale Price vs Homes Sold
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=Redfin_df_cleaned, x='homes_sold', y='median_sale_price', hue='state', alpha=0.6)
+plt.title("Median Sale Price vs Homes Sold")
+plt.xlabel("Homes Sold")
+plt.ylabel("Median Sale Price")
+plt.legend([], [], frameon=False)  # Hide legend for clarity
+plt.show()
+```
+<img width="859" alt="Screenshot 2025-02-24 at 9 00 55 PM" src="https://github.com/user-attachments/assets/26d2cdaf-fbc6-4daa-b739-12969c4f2f85" />
+
+
 
 
 
