@@ -321,6 +321,8 @@ Redfin_df_cleaned.to_csv(export_path, index=False)
 ```
 
 #### Data Cleaning Summary:
+
+#### Initial Dataset
 * Rows: 66,577
 * Columns: 50
 
