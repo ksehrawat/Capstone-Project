@@ -224,9 +224,9 @@ Redfin_df_dropped_preview = print(Redfin_df_cleaned.head().to_markdown(index=Fal
 Redfin_df_dropped_info, Redfin_df_dropped_preview
 ```
 Data columns (total 50 columns):
- #   Column                          Non-Null Count  Dtype  
----  ------                          --------------  -----  
- 0   period_begin                    47547 non-null  object 
+   |  Column                       |   Non-Null Count  Dtype  
+---  ------                        | --------------  -----  
+ 0   period_begin                  | 47547 non-null  object 
  1   period_end                      47547 non-null  object 
  2   period_duration                 47547 non-null  int64  
  3   region_type                     47547 non-null  object 
