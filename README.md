@@ -292,6 +292,36 @@ Total Rows: 47,547
 Columns: 50
 
 The data is fully clean with no missing values
+
+```python
+# Remove Outliers from the Dataset
+Q1 = Redfin_df_cleaned['median_sale_price'].quantile(0.25)
+Q3 = Redfin_df_cleaned['median_sale_price'].quantile(0.75)
+IQR = Q3 - Q1
+
+# Define outlier boundaries
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Filter out outliers
+Redfin_df_cleaned = Redfin_df_cleaned[(Redfin_df_cleaned['median_sale_price'] >= lower_bound) &
+                        (Redfin_df_cleaned['median_sale_price'] <= upper_bound)]
+```
+
+### Outliers in median_sale_price were removed based on the Interquartile Range (IQR) method.
+
+Total Rows: 44723
+
+Median_sale_price Statistics:
+
+Minimum: $1,800
+
+Maximum: $1,521,000
+
+Mean: $522,755
+
+Median: $442,000
+
 ### Initial Dataset:
 
 * Rows: 66,577
