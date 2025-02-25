@@ -635,6 +635,8 @@ y_pred = model.predict(X_test)
 print(classification_report(y_test, y_pred))
 print("Accuracy:", accuracy_score(y_test, y_pred))
 ```
+<img width="480" alt="Screenshot 2025-02-24 at 9 51 07 PM" src="https://github.com/user-attachments/assets/351f6ca4-6759-41aa-b504-6df124e35856" />
+
 #### Logistic Model Analysis
 Overall Accuracy: 90.5%
 
