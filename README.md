@@ -648,5 +648,94 @@ Precision, Recall, and F1-score:
 The model performs well in classifying Low and Medium price categories but has slightly lower recall for High-priced properties, indicating some misclassification in this segment.
 
 
-#### 2. Ridge/Lasso Regression
+#### 3. Ridge/Lasso Regression
+```python
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.model_selection import cross_val_score
 
+# Define features and target variable
+X = Redfin_df_cleaned[selected_features]
+y = Redfin_df_cleaned['median_sale_price']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize Ridge and Lasso models
+ridge_model = Ridge(alpha=1.0, random_state=42)
+lasso_model = Lasso(alpha=0.1, random_state=42)
+
+# Train Ridge and Lasso models
+ridge_model.fit(X_train, y_train)
+lasso_model.fit(X_train, y_train)
+
+# Evaluate Ridge model
+y_pred_ridge = ridge_model.predict(X_test)
+rmse_ridge = mean_squared_error(y_test, y_pred_ridge) ** 0.5
+r2_ridge = r2_score(y_test, y_pred_ridge)
+
+# Evaluate Lasso model
+y_pred_lasso = lasso_model.predict(X_test)
+rmse_lasso = mean_squared_error(y_test, y_pred_lasso) ** 0.5
+r2_lasso = r2_score(y_test, y_pred_lasso)
+
+# Display results
+ridge_lasso_comparison = pd.DataFrame({
+    'Model': ['Ridge Regression', 'Lasso Regression'],
+    'RMSE': [rmse_ridge, rmse_lasso],
+    'R²': [r2_ridge, r2_lasso]
+})
+
+
+print("Ridge vs Lasso Regression Comparison:\n")
+
+ridge_lasso_comparison
+```
+<img width="348" alt="Screenshot 2025-02-24 at 9 57 17 PM" src="https://github.com/user-attachments/assets/8ebd7564-2080-4514-a0f6-12a3b57575a9" />
+
+#### Extract feature coefficients from Ridge and Lasso models
+```python
+# Extract feature coefficients from Ridge and Lasso models
+ridge_coefficients = pd.DataFrame({
+    'Feature': X.columns,
+    'Ridge Coefficient': ridge_model.coef_
+}).sort_values(by='Ridge Coefficient', ascending=False)
+
+lasso_coefficients = pd.DataFrame({
+    'Feature': X.columns,
+    'Lasso Coefficient': lasso_model.coef_
+}).sort_values(by='Lasso Coefficient', ascending=False)
+
+# Merge and compare Ridge and Lasso coefficients
+coefficients_comparison = pd.merge(ridge_coefficients, lasso_coefficients, on='Feature')
+
+# Instead of: import ace_tools as tools; tools.display_dataframe_to_user(name="Ridge vs Lasso Coefficients", dataframe=coefficients_comparison)
+print("Ridge vs Lasso Coefficients:\n")
+
+# Display the DataFrame using a standard pandas method
+
+coefficients_comparison
+```
+<img width="516" alt="Screenshot 2025-02-24 at 10 00 24 PM" src="https://github.com/user-attachments/assets/ece8c81d-21d4-4f28-9c08-8923a48e592a" />
+
+#### Key Insights:
+avg_sale_to_list:
+* Ridge: $463,478
+* Lasso: $477,916
+
+Top Features:
+
+* median_sale_price_mom: Significant in both models, indicating the importance of recent price trends.
+
+Moderate Contributors:
+
+* sold_above_list: Consistently contributes positively across both models, reflecting the competitiveness of markets.
+* off_market_in_two_weeks: A smaller but positive influence.
+
+Negatively Contributing Features:
+
+* new_listings: Negatively impacts predictions, likely due to supply-side pressure on prices.
+* median_list_ppsf: Negligible negative coefficients, indicating minimal contribution to prediction.
+
+Differences:
+
+Lasso Regression applies stronger regularization, leading to slightly different coefficients (e.g., larger for avg_sale_to_list and sold_above_list).
