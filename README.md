@@ -648,7 +648,7 @@ Precision, Recall, and F1-score:
 The model performs well in classifying Low and Medium price categories but has slightly lower recall for High-priced properties, indicating some misclassification in this segment.
 
 
-#### 3. Ridge/Lasso Regression
+#### Model 3: Ridge/Lasso Regression
 ```python
 from sklearn.linear_model import Ridge, Lasso
 from sklearn.model_selection import cross_val_score
