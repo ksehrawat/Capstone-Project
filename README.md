@@ -322,6 +322,12 @@ Mean: $522,755
 
 Median: $442,000
 
+```python
+# Exporting and Saving Clean Dataset to Google Share Drive
+export_path = '/content/drive/MyDrive/AI Capstone Project/Redfin_df_cleaned.csv'
+Redfin_df_cleaned.to_csv(export_path, index=False)
+```
+
 ### Initial Dataset:
 
 * Rows: 66,577
