@@ -310,17 +310,12 @@ Redfin_df_cleaned = Redfin_df_cleaned[(Redfin_df_cleaned['median_sale_price'] >=
 
 ### Outliers in median_sale_price were removed based on the Interquartile Range (IQR) method.
 
-Total Rows: 44723
-
-Median_sale_price Statistics:
-
-Minimum: $1,800
-
-Maximum: $1,521,000
-
-Mean: $522,755
-
-Median: $442,000
+* Total Rows: 44723
+* Median_sale_price Statistics:
+* Minimum: $1,800
+* Maximum: $1,521,000
+* Mean: $522,755
+* Median: $442,000
 
 ```python
 # Exporting and Saving Clean Dataset to Google Share Drive
