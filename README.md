@@ -564,4 +564,24 @@ rmse_improved, r2_improved
 * Root Mean Squared Error (RMSE): $1,180,907.16 (higher than before, indicating larger errors).
 * R² Score: -12.32 (negative, suggesting the model is failing to explain variance).
 
+#### Analyze feature importance in the model
+```python
+# Extract and analyze feature importance (coefficients) from the linear regression model
+feature_importance = pd.DataFrame({
+    'Feature': X_train.columns,
+    'Coefficient': linear_model.coef_
+}).sort_values(by='Coefficient', ascending=False)
 
+# Display the feature importance using a standard pandas method
+# Instead of: import ace_tools as tools; tools.display_dataframe_to_user(name="Feature Importance Analysis", dataframe=feature_importance)
+print("Feature Importance Analysis:\n")
+
+feature_importance
+```
+<img width="333" alt="Screenshot 2025-02-24 at 9 35 03 PM" src="https://github.com/user-attachments/assets/6d94ba80-a5fc-4e8b-b14a-e5994460712e" />
+
+The feature importance analysis for the linear regression model has been completed, ranking features by their coefficients.
+
+Key observations:
+* Positive contributors: Features like median_list_ppsf, median_list_price, and interaction terms (sale_to_list_interaction) have strong positive impacts on median_sale_price.
+* Negative contributors: Features like list_price_ppsf_interaction and sold_above_list negatively influence the target variable.
