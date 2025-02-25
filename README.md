@@ -320,16 +320,16 @@ export_path = '/content/drive/MyDrive/AI Capstone Project/Redfin_df_cleaned.csv'
 Redfin_df_cleaned.to_csv(export_path, index=False)
 ```
 
-### Data Cleaning Summary:
+#### Data Cleaning Summary:
 * Rows: 66,577
 * Columns: 50
 
-### Key Cleaning Steps:
+#### Key Cleaning Steps:
 * Removed missing values and irrelevant columns.
 * Handled outliers in median_sale_price using IQR.
 * Converted period_begin to datetime format for time-based analysis.
 
-### Final Dataset:
+#### Final Dataset:
 * Rows: 44,723
 * Columns: 50
 
