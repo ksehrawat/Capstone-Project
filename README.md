@@ -150,6 +150,67 @@ Column: parent_metro_region
 Number of distinct values: 136
 Most frequent value: Los Angeles, CA
 
+```python
+# Print the count and percentage of missing values for each column
+missing_values = Redfin_df.isnull().sum()
+missing_percent = (missing_values / len(Redfin_df)) * 100
+print("Missing Values:\n")
+print(pd.concat([missing_values, missing_percent], axis=1, keys=['Count', 'Percentage']).sort_values(by='Count', ascending=False).to_markdown(numalign="left", stralign="left")
+```
+Missing Values:
+
+|                                | Count   | Percentage   |
+|:-------------------------------|:--------|:-------------|
+| inventory_yoy                  | 12894   | 19.367       |
+| inventory_mom                  | 10642   | 15.9845      |
+| median_list_ppsf_yoy           | 10467   | 15.7216      |
+| median_list_price_yoy          | 10168   | 15.2725      |
+| new_listings_yoy               | 10161   | 15.262       |
+| avg_sale_to_list_yoy           | 9386    | 14.098       |
+| off_market_in_two_weeks_yoy    | 9165    | 13.766       |
+| pending_sales_yoy              | 9165    | 13.766       |
+| median_list_ppsf_mom           | 7660    | 11.5055      |
+| inventory                      | 7453    | 11.1946      |
+| median_list_price_mom          | 7387    | 11.0954      |
+| new_listings_mom               | 7376    | 11.0789      |
+| median_ppsf_yoy                | 7326    | 11.0038      |
+| median_dom_yoy                 | 7318    | 10.9918      |
+| median_sale_price_yoy          | 6803    | 10.2182      |
+| sold_above_list_yoy            | 6803    | 10.2182      |
+| homes_sold_yoy                 | 6803    | 10.2182      |
+| pending_sales_mom              | 5907    | 8.87243      |
+| off_market_in_two_weeks_mom    | 5907    | 8.87243      |
+| avg_sale_to_list_mom           | 5350    | 8.03581      |
+| median_list_ppsf               | 4650    | 6.98439      |
+| median_list_price              | 4396    | 6.60288      |
+| new_listings                   | 4385    | 6.58636      |
+| median_ppsf_mom                | 3334    | 5.00774      |
+| median_dom_mom                 | 3271    | 4.91311      |
+| off_market_in_two_weeks        | 2918    | 4.38289      |
+| pending_sales                  | 2918    | 4.38289      |
+| median_sale_price_mom          | 2868    | 4.30779      |
+| sold_above_list_mom            | 2868    | 4.30779      |
+| homes_sold_mom                 | 2868    | 4.30779      |
+| avg_sale_to_list               | 2497    | 3.75054      |
+| median_ppsf                    | 442     | 0.663893     |
+| median_dom                     | 383     | 0.575274     |
+| period_begin                   | 0       | 0            |
+| property_type_id               | 0       | 0            |
+| property_type                  | 0       | 0            |
+| median_sale_price              | 0       | 0            |
+| table_id                       | 0       | 0            |
+| is_seasonally_adjusted         | 0       | 0            |
+| ZipCode                        | 0       | 0            |
+| state                          | 0       | 0            |
+| state_code                     | 0       | 0            |
+| region_type                    | 0       | 0            |
+| region_type_id                 | 0       | 0            |
+| period_duration                | 0       | 0            |
+| period_end                     | 0       | 0            |
+| homes_sold                     | 0       | 0            |
+| sold_above_list                | 0       | 0            |
+| parent_metro_region            | 0       | 0            |
+| parent_metro_region_metro_code | 0       | 0            |
 ### Initial Dataset:
 
 * Rows: 66,577
