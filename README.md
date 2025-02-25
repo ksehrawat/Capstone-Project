@@ -290,6 +290,7 @@ plt.xlabel("Median Sale Price")
 plt.ylabel("Frequency")
 plt.show()
 ```
+<img width="879" alt="Screenshot 2025-02-24 at 8 55 59 PM" src="https://github.com/user-attachments/assets/20e0be76-2759-4592-99f3-0f03a532bc4a" />
 
 
 
