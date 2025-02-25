@@ -280,7 +280,7 @@ Redfin_df_cleaned.to_csv(export_path, index=False)
 * Columns: 50
 
 ## Data Visualization
-### Distribution of Median Sale Price
+### Visualization 1: Distribution of Median Sale Price
 ```python
 # Visualization 1: Distribution of Median Sale Price
 plt.figure(figsize=(10, 6))
@@ -292,7 +292,7 @@ plt.show()
 ```
 <img width="879" alt="Screenshot 2025-02-24 at 8 55 59 PM" src="https://github.com/user-attachments/assets/20e0be76-2759-4592-99f3-0f03a532bc4a" />
 
-### Median Sale Price by State
+### Visualization 2: Median Sale Price by State
 ```python
 # Visualization 2: Median Sale Price by State
 plt.figure(figsize=(12, 8))
