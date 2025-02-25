@@ -159,7 +159,7 @@ print(pd.concat([missing_values, missing_percent], axis=1, keys=['Count', 'Perce
 ```
 Missing Values:
 
-|                                | Count   | Percentage   |
+| Column Name                    | Count   | Percentage   |
 |:-------------------------------|:--------|:-------------|
 | inventory_yoy                  | 12894   | 19.367       |
 | inventory_mom                  | 10642   | 15.9845      |
