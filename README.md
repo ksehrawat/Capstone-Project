@@ -23,6 +23,15 @@ How can we leverage historical housing data and machine learning models to accur
 
 Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/news/data-center/) and then data was filetered furtner up to focus on the 3 states i.e. California, New York , and Texas. Initial DataSet (NewRedfinDataSet.csv) was stored in the Google Drive Folder so that it can used in Colab for further analysis.
 
+## Create DataFrame in Python for the Data Set
+```python
+
+file_path = '/content/drive/MyDrive/AI Capstone Project/NewRedfinDataSet.csv'
+Redfin_df = pd.read_csv(file_path)
+
+print(Redfin_df.head().to_markdown(index=False, numalign="left", stralign="left"))
+```
+
 
 ## Data Exploration and Cleaning
 ### Initial Dataset:
