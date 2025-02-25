@@ -116,19 +116,19 @@ Descriptive Statistics for Numeric Columns:
 | 75%   | 90                | 2                | 38239      | 92262     | 6                  | 749000              | 0.0411311               | 0.219439                | 769500              | 0.0422489               | 0.194223                | 471.287       | 0.0327817         | 0.205783          | 484.261            | 0.0319239              | 0.177115               | 40           | 0.135135         | 0.259259         | 46              | 0.129575            | 0.222222            | 52             | 0.166667           | 0.277778           | 34          | 0.172414        | 0.4             | 62.5         | 4.5              | 13               | 1.01887            | 0.00714243             | 0.0268262              | 0.571429          | 0.035102              | 0.166667              | 0.571429                  | 0.0367893                     | 0.127714                      | 40380                            |
 | max   | 90                | 2                | 42009      | 96162     | 13                 | 6.59e+07            | 18.076                  | 393.737                 | 3.65e+07            | 249.292                 | 1853.27                 | 1.2033e+07    | 2528.75           | 1946              | 7.75005e+06        | 1045.88                | 5123.97                | 934          | 8                | 113              | 857             | 8                   | 81                  | 995            | 19                 | 78                 | 767         | 15              | 69              | 6715         | 6678             | 3705.5           | 1.97995            | 0.495689               | 0.99709                | 1                 | 1                     | 1                     | 1                         | 1                             | 1                             | 49820                            |
 
-Object Column Summaries:
+### Object Column Summaries:
 
-Column: period_begin
+#### Column: period_begin
 * Number of distinct values: 42
 * Most frequent value: 7/1/21
 
-Column: period_end
-Number of distinct values: 42
-Most frequent value: 9/30/21
+#### Column: period_end
+* Number of distinct values: 42
+* Most frequent value: 9/30/21
 
-Column: region_type
-Number of distinct values: 1
-Most frequent value: zip code
+#### Column: region_type
+* Number of distinct values: 1
+* Most frequent value: zip code
 
 Column: is_seasonally_adjusted
 Number of distinct values: 1
