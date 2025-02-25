@@ -280,7 +280,7 @@ Redfin_df_cleaned.to_csv(export_path, index=False)
 * Columns: 50
 
 ## Data Visualization
-### Visualization 1: Distribution of Median Sale Price
+#### Visualization 1: Distribution of Median Sale Price
 ```python
 # Visualization 1: Distribution of Median Sale Price
 plt.figure(figsize=(10, 6))
@@ -292,7 +292,7 @@ plt.show()
 ```
 <img width="879" alt="Screenshot 2025-02-24 at 8 55 59 PM" src="https://github.com/user-attachments/assets/20e0be76-2759-4592-99f3-0f03a532bc4a" />
 
-### Visualization 2: Median Sale Price by State
+#### Visualization 2: Median Sale Price by State
 ```python
 # Visualization 2: Median Sale Price by State
 plt.figure(figsize=(12, 8))
@@ -305,7 +305,7 @@ plt.show()
 ```
 <img width="1076" alt="Screenshot 2025-02-24 at 8 58 08 PM" src="https://github.com/user-attachments/assets/a7908efc-de08-46ee-ab7a-30a66d6e7f98" />
 
-### Visualization 2: Median Sale Price vs Homes Sold
+#### Visualization 2: Median Sale Price vs Homes Sold
 ```python
 # Visualization 3: Median Sale Price vs Homes Sold
 plt.figure(figsize=(10, 6))
@@ -317,6 +317,26 @@ plt.legend([], [], frameon=False)  # Hide legend for clarity
 plt.show()
 ```
 <img width="859" alt="Screenshot 2025-02-24 at 9 00 55 PM" src="https://github.com/user-attachments/assets/26d2cdaf-fbc6-4daa-b739-12969c4f2f85" />
+
+#### Visualization 4: Trend of Median Sale Price Over Time
+```python
+# Visualization 4: Trend of Median Sale Price Over Time
+
+# Convert `period_begin` to datetime with specified format
+Redfin_df_cleaned['period_begin'] = pd.to_datetime(Redfin_df_cleaned['period_begin'], format='%m/%d/%y', errors='coerce')
+
+# Trend of Median Sale Price Over Time
+time_trend_updated = Redfin_df_cleaned.groupby('period_begin')['median_sale_price'].median()
+plt.figure(figsize=(12, 6))
+time_trend_updated.plot(marker='o', color='green')
+plt.title("Trend of Median Sale Price Over Time")
+plt.xlabel("Time")
+plt.ylabel("Median Sale Price")
+plt.grid(True)
+plt.show()
+```
+<img width="1075" alt="Screenshot 2025-02-24 at 9 05 51 PM" src="https://github.com/user-attachments/assets/9613471b-e03c-4677-a738-4fd57d507b1f" />
+
 
 
 
