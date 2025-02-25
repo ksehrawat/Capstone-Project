@@ -350,6 +350,54 @@ plt.show()
 ```
 <img width="920" alt="Screenshot 2025-02-24 at 9 07 54 PM" src="https://github.com/user-attachments/assets/c57026cf-8699-41fa-a5b0-d4b3cd50ea35" />
 
+#### Visualization 6: Density Plot of Sale Price by Property Type
+```python
+# Visualization 6: Density Plot of Sale Price by Property Type
+plt.figure(figsize=(12, 8))
+sns.kdeplot(data=Redfin_df_cleaned, x='median_sale_price', hue='property_type', fill=True, common_norm=False, alpha=0.6)
+plt.title("Density Plot of Median Sale Price by Property Type")
+plt.xlabel("Median Sale Price")
+plt.ylabel("Density")
+plt.show()
+```
+<img width="932" alt="Screenshot 2025-02-24 at 9 09 36 PM" src="https://github.com/user-attachments/assets/cab63aab-b67a-4d9d-8457-9f8e4be9c57d" />
+
+#### Visualization 7: Violin Plot of Days on Market by State
+```python
+# Visualization 7: Violin Plot of Days on Market by State
+states = Redfin_df_cleaned['state'].value_counts().index
+filtered_data = Redfin_df_cleaned[Redfin_df_cleaned['state'].isin(states)]
+
+plt.figure(figsize=(14, 8))
+sns.violinplot(data=filtered_data, x='state', y='median_dom', palette="muted", legend=False,hue = 'state',density_norm='width' )
+plt.title("Violin Plot of Median Days on Market by States")
+plt.xlabel("State")
+plt.ylabel("Median Days on Market")
+plt.xticks(rotation=45)
+plt.show()
+```
+<img width="1071" alt="Screenshot 2025-02-24 at 9 10 48 PM" src="https://github.com/user-attachments/assets/1819362a-0ddb-4a08-83b0-3e94163b78dc" />
+
+#### Visualization 8: Heatmap of Median Sale Price by State and Property Type
+```python
+# Visualization 8: Heatmap of Median Sale Price by State and Property Type
+pivot_table = Redfin_df_cleaned.pivot_table(
+    values='median_sale_price',
+    index='state',
+    columns='property_type',
+    aggfunc='median'
+)
+
+plt.figure(figsize=(14, 10))
+sns.heatmap(pivot_table, annot=True, fmt='.0f', cmap='coolwarm', cbar=True)
+plt.title("Heatmap of Median Sale Price by State and Property Type")
+plt.xlabel("Property Type")
+plt.ylabel("State")
+plt.xticks(rotation=45)
+plt.show()
+```
+<img width="841" alt="Screenshot 2025-02-24 at 9 12 14 PM" src="https://github.com/user-attachments/assets/8a39c414-3920-4d8f-b660-e3371ee39d98" />
+
 
 
 
