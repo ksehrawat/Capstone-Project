@@ -25,6 +25,13 @@ Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/ne
 
 ## Create DataFrame in Python for the Data Set
 ```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+sns.set(style="whitegrid")
 
 file_path = '/content/drive/MyDrive/AI Capstone Project/NewRedfinDataSet.csv'
 Redfin_df = pd.read_csv(file_path)
