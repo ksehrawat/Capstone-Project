@@ -398,6 +398,16 @@ plt.show()
 ```
 <img width="841" alt="Screenshot 2025-02-24 at 9 12 14 PM" src="https://github.com/user-attachments/assets/8a39c414-3920-4d8f-b660-e3371ee39d98" />
 
+#### Visualization 9: Pair Plot for Key Features
+```python
+# Visualization 9: Pair Plot for Key Features
+key_features = ['median_sale_price', 'median_list_price', 'median_ppsf', 'homes_sold', 'inventory']
+
+sns.pairplot(Redfin_df_cleaned[key_features], diag_kind="kde", plot_kws={"alpha": 0.7})
+plt.suptitle("Pair Plot for Key Features", y=1.02)
+plt.show()
+```
+<img width="1006" alt="Screenshot 2025-02-24 at 9 13 58 PM" src="https://github.com/user-attachments/assets/116e51b7-2525-4334-86c4-18bb0e9375db" />
 
 
 
