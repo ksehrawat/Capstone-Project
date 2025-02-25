@@ -130,25 +130,25 @@ Descriptive Statistics for Numeric Columns:
 * Number of distinct values: 1
 * Most frequent value: zip code
 
-Column: is_seasonally_adjusted
-Number of distinct values: 1
-Most frequent value: f
+#### Column: is_seasonally_adjusted
+* Number of distinct values: 1
+* Most frequent value: f
 
-Column: state
-Number of distinct values: 3
-Most frequent value: California
+#### Column: state
+* Number of distinct values: 3
+* Most frequent value: California
 
-Column: state_code
-Number of distinct values: 3
-Most frequent value: CA
+#### Column: state_code
+* Number of distinct values: 3
+* Most frequent value: CA
 
-Column: property_type
-Number of distinct values: 5
-Most frequent value: All Residential
+#### Column: property_type
+* Number of distinct values: 5
+* Most frequent value: All Residential
 
-Column: parent_metro_region
-Number of distinct values: 136
-Most frequent value: Los Angeles, CA
+#### Column: parent_metro_region
+* Number of distinct values: 136
+* Most frequent value: Los Angeles, CA
 
 ```python
 # Print the count and percentage of missing values for each column
