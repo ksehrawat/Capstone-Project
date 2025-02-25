@@ -89,6 +89,21 @@ Data columns (total 50 columns):
 dtypes: float64(35), int64(7), object(8)
 
 ## Data Exploration and Cleaning
+``` python
+# Print descriptive statistics for all numeric columns
+
+print("\nDescriptive Statistics for Numeric Columns:\n")
+print(Redfin_df.describe().to_markdown(numalign="left", stralign="left"))
+
+# For all object type columns, print the number of distinct values and the most frequent value
+
+print("\nObject Column Summaries:\n")
+for col in Redfin_df.select_dtypes(include='object'):
+    print(f"Column: {col}")
+    print(f"  Number of distinct values: {Redfin_df[col].nunique()}")
+    print(f"  Most frequent value: {Redfin_df[col].mode()[0]}\n")
+```
+
 ### Initial Dataset:
 
 * Rows: 66,577
