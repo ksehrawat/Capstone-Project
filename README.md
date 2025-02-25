@@ -739,3 +739,45 @@ Negatively Contributing Features:
 Differences:
 
 Lasso Regression applies stronger regularization, leading to slightly different coefficients (e.g., larger for avg_sale_to_list and sold_above_list).
+
+#### Both Models Residuels Analysis
+```python
+# Calculate residuals for both models
+Redfin_df_cleaned['ridge_residuals'] = Redfin_df_cleaned['median_sale_price'] - ridge_model.predict(X)
+Redfin_df_cleaned['lasso_residuals'] = Redfin_df_cleaned['median_sale_price'] - lasso_model.predict(X)
+
+# Plot residuals for Ridge Regression
+plt.figure(figsize=(12, 6))
+plt.scatter(Redfin_df_cleaned['median_sale_price'], Redfin_df_cleaned['ridge_residuals'], alpha=0.5, label='Ridge Residuals')
+plt.axhline(0, color='red', linestyle='--', label='Ideal Residuals (0)')
+plt.title("Residuals for Ridge Regression")
+plt.xlabel("Actual Sale Price")
+plt.ylabel("Residuals (Actual - Predicted)")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Plot residuals for Lasso Regression
+plt.figure(figsize=(12, 6))
+plt.scatter(Redfin_df_cleaned['median_sale_price'], Redfin_df_cleaned['lasso_residuals'], alpha=0.5, label='Lasso Residuals', color='orange')
+plt.axhline(0, color='red', linestyle='--', label='Ideal Residuals (0)')
+plt.title("Residuals for Lasso Regression")
+plt.xlabel("Actual Sale Price")
+plt.ylabel("Residuals (Actual - Predicted)")
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+<img width="469" alt="Screenshot 2025-02-24 at 10 05 38 PM" src="https://github.com/user-attachments/assets/e7a00c44-6988-4b0b-9105-ee0d55775f6e" />
+
+#### Residual Analysis:
+
+**Ridge Regression Residuals:**
+
+* Residuals are scattered relatively evenly around the zero line, indicating that the model performs consistently across different sale price ranges.
+* Some larger residuals are visible for extreme sale prices, suggesting areas where the model struggles to predict accurately.
+
+**Lasso Regression Residuals:**
+
+* Residuals are similar to Ridge but show slightly more clustering near zero, indicating slightly better alignment with actual sale prices.
+* Outliers and deviations are still present for extreme values, similar to Ridge Regression.
