@@ -286,10 +286,8 @@ Missing Values:
 | parent_metro_region_metro_code | 0       | 0            |
 
 ### The dataset now contains only rows without missing values:
-
-Total Rows: 47,547
-
-Columns: 50
+* Total Rows: 47,547
+* Columns: 50
 
 The data is fully clean with no missing values
 
@@ -308,8 +306,7 @@ Redfin_df_cleaned = Redfin_df_cleaned[(Redfin_df_cleaned['median_sale_price'] >=
                         (Redfin_df_cleaned['median_sale_price'] <= upper_bound)]
 ```
 
-### Outliers in median_sale_price were removed based on the Interquartile Range (IQR) method.
-
+#### Outliers in median_sale_price were removed based on the Interquartile Range (IQR) method.
 * Total Rows: 44723
 * Median_sale_price Statistics:
 * Minimum: $1,800
