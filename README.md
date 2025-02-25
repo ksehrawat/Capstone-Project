@@ -285,11 +285,10 @@ Missing Values:
 | median_list_ppsf_mom           | 0       | 0            |
 | parent_metro_region_metro_code | 0       | 0            |
 
-### The dataset now contains only rows without missing values:
+#### The dataset now contains only rows without missing values:
 * Total Rows: 47,547
 * Columns: 50
 
-The data is fully clean with no missing values
 
 ```python
 # Remove Outliers from the Dataset
