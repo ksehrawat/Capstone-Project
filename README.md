@@ -428,3 +428,29 @@ plt.show()
 ```
 <img width="877" alt="Screenshot 2025-02-24 at 9 16 41 PM" src="https://github.com/user-attachments/assets/eeb26f5c-e78a-42f8-8175-c9a8a8367c51" />
 
+#### Key Insights from the Correlation Heatmap:
+
+#####Strong Positive Correlations:
+
+* median_list_price and median_sale_price: A very high positive correlation indicates that list prices are strong predictors of sale prices.
+* median_ppsf (price per square foot) and median_sale_price: Indicates that the price per square foot is a significant factor in determining sale prices.
+
+#####Moderate Positive Correlations:
+
+* pending_sales and median_sale_price: Suggests that higher pending sales are associated with higher sale prices.
+* homes_sold and median_sale_price: Indicates a link between market activity (homes sold) and property values.
+
+#####Negative Correlations:
+
+* median_dom (days on market) and median_sale_price: Properties with higher prices tend to spend fewer days on the market, reflecting higher demand.
+* inventory and median_sale_price: Suggests that increased inventory might pressure prices downward, likely due to supply-demand dynamics.
+
+#####Feature Clustering:
+
+* Price-related metrics (e.g., median_list_price, median_ppsf) are tightly correlated, forming a cluster of features with shared predictive power.
+* Market activity metrics (e.g., homes_sold, pending_sales) show interdependence, highlighting their mutual influence on market conditions.
+
+#####Irrelevant or Weak Correlations:
+
+* Metrics like off_market_in_two_weeks and its derivatives have little correlation with median_sale_price, suggesting limited predictive value for these features.
+
