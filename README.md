@@ -211,6 +211,72 @@ Missing Values:
 | sold_above_list                | 0       | 0            |
 | parent_metro_region            | 0       | 0            |
 | parent_metro_region_metro_code | 0       | 0            |
+
+```python
+# Drop all rows with missing values
+
+Redfin_df_cleaned = Redfin_df.dropna()
+
+# Display updated dataset info and first few rows
+Redfin_df_dropped_info = Redfin_df_cleaned.info()
+Redfin_df_dropped_preview = print(Redfin_df_cleaned.head().to_markdown(index=False, numalign="left", stralign="left"))
+
+Redfin_df_dropped_info, Redfin_df_dropped_preview
+```
+Data columns (total 50 columns):
+ #   Column                          Non-Null Count  Dtype  
+---  ------                          --------------  -----  
+ 0   period_begin                    47547 non-null  object 
+ 1   period_end                      47547 non-null  object 
+ 2   period_duration                 47547 non-null  int64  
+ 3   region_type                     47547 non-null  object 
+ 4   region_type_id                  47547 non-null  int64  
+ 5   table_id                        47547 non-null  int64  
+ 6   is_seasonally_adjusted          47547 non-null  object 
+ 7   ZipCode                         47547 non-null  int64  
+ 8   state                           47547 non-null  object 
+ 9   state_code                      47547 non-null  object 
+ 10  property_type                   47547 non-null  object 
+ 11  property_type_id                47547 non-null  int64  
+ 12  median_sale_price               47547 non-null  float64
+ 13  median_sale_price_mom           47547 non-null  float64
+ 14  median_sale_price_yoy           47547 non-null  float64
+ 15  median_list_price               47547 non-null  float64
+ 16  median_list_price_mom           47547 non-null  float64
+ 17  median_list_price_yoy           47547 non-null  float64
+ 18  median_ppsf                     47547 non-null  float64
+ 19  median_ppsf_mom                 47547 non-null  float64
+ 20  median_ppsf_yoy                 47547 non-null  float64
+ 21  median_list_ppsf                47547 non-null  float64
+ 22  median_list_ppsf_mom            47547 non-null  float64
+ 23  median_list_ppsf_yoy            47547 non-null  float64
+ 24  homes_sold                      47547 non-null  int64  
+ 25  homes_sold_mom                  47547 non-null  float64
+ 26  homes_sold_yoy                  47547 non-null  float64
+ 27  pending_sales                   47547 non-null  float64
+ 28  pending_sales_mom               47547 non-null  float64
+ 29  pending_sales_yoy               47547 non-null  float64
+ 30  new_listings                    47547 non-null  float64
+ 31  new_listings_mom                47547 non-null  float64
+ 32  new_listings_yoy                47547 non-null  float64
+ 33  inventory                       47547 non-null  float64
+ 34  inventory_mom                   47547 non-null  float64
+ 35  inventory_yoy                   47547 non-null  float64
+ 36  median_dom                      47547 non-null  float64
+ 37  median_dom_mom                  47547 non-null  float64
+ 38  median_dom_yoy                  47547 non-null  float64
+ 39  avg_sale_to_list                47547 non-null  float64
+ 40  avg_sale_to_list_mom            47547 non-null  float64
+ 41  avg_sale_to_list_yoy            47547 non-null  float64
+ 42  sold_above_list                 47547 non-null  float64
+ 43  sold_above_list_mom             47547 non-null  float64
+ 44  sold_above_list_yoy             47547 non-null  float64
+ 45  off_market_in_two_weeks         47547 non-null  float64
+ 46  off_market_in_two_weeks_mom     47547 non-null  float64
+ 47  off_market_in_two_weeks_yoy     47547 non-null  float64
+ 48  parent_metro_region             47547 non-null  object 
+ 49  parent_metro_region_metro_code  47547 non-null  int64  
+dtypes: float64(35), int64(7), object(8)
 ### Initial Dataset:
 
 * Rows: 66,577
