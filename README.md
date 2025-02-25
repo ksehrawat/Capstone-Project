@@ -2,7 +2,11 @@
 
 ## Project Overview
 
-The main objective of the project was to explore house prices for the California, New York, and Texas states and analyze market trends for actionable insights. The project also aimed to forecast future house prices using advance machine learning models.
+The real estate market is dynamic and influenced by various factors such as location, property size, neighborhood quality, and proximity to amenities. Accurately predicting house prices is crucial for buyers, sellers, investors, and financial institutions to make informed decisions. The challenge lies in identifying key drivers of house prices and building a robust predictive model that can generalize well across different markets.
+
+## Research Question
+
+How can we leverage historical housing data and machine learning models to accurately predict house prices, identify key influencing factors, and provide actionable insights for market participants?
 
 ## Files Information
 
