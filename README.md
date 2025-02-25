@@ -118,9 +118,9 @@ Descriptive Statistics for Numeric Columns:
 
 Object Column Summaries:
 
-*Column: period_begin
-** Number of distinct values: 42
-**Most frequent value: 7/1/21
+Column: period_begin
+* Number of distinct values: 42
+* Most frequent value: 7/1/21
 
 Column: period_end
 Number of distinct values: 42
