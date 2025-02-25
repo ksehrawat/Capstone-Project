@@ -585,3 +585,66 @@ The feature importance analysis for the linear regression model has been complet
 Key observations:
 * Positive contributors: Features like median_list_ppsf, median_list_price, and interaction terms (sale_to_list_interaction) have strong positive impacts on median_sale_price.
 * Negative contributors: Features like list_price_ppsf_interaction and sold_above_list negatively influence the target variable.
+
+#### Model 2: Logistic Regression:
+```python
+# prompt: Run Logistic Regression on the Redfin_df_cleaned
+
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, accuracy_score
+from sklearn.preprocessing import StandardScaler # Import StandardScaler for feature scaling
+
+
+# Assuming 'median_sale_price' is your target variable for classification
+# You might need to categorize 'median_sale_price' into different classes
+# (e.g., low, medium, high) to apply logistic regression
+# Example categorization:
+Redfin_df_cleaned['price_category'] = pd.cut(Redfin_df_cleaned['median_sale_price'], bins=3, labels=['Low', 'Medium', 'High']) # This line was commented out, causing the error. Uncomment to create the 'price_category' column.
+
+
+# Select features and target
+# Assuming you already selected relevant features
+selected_features = ['median_list_price', 'avg_sale_to_list', 'sold_above_list',
+                     'median_ppsf', 'median_list_ppsf', 'off_market_in_two_weeks',
+                     'median_sale_price_mom', 'median_dom_yoy', 'homes_sold', 'new_listings']
+X = Redfin_df_cleaned[selected_features]
+
+# Target variable needs to be categorical for Logistic Regression
+y = Redfin_df_cleaned['price_category'] #replace with your categorical target
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Scale the features using StandardScaler
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+
+# Initialize and train the model
+# Increased max_iter further and added a different solver
+model = LogisticRegression(max_iter=5000, solver='saga')  
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+print(classification_report(y_test, y_pred))
+print("Accuracy:", accuracy_score(y_test, y_pred))
+```
+#### Logistic Model Analysis
+Overall Accuracy: 90.5%
+
+Precision, Recall, and F1-score:
+* High: Precision = 0.83, Recall = 0.74, F1-score = 0.78
+* Low: Precision = 0.95, Recall = 0.95, F1-score = 0.95
+* Medium: Precision = 0.85, Recall = 0.87, F1-score = 0.86
+
+The model performs well in classifying Low and Medium price categories but has slightly lower recall for High-priced properties, indicating some misclassification in this segment.
+
+
+#### 2. Ridge/Lasso Regression
+
