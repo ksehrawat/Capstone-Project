@@ -833,4 +833,36 @@ plt.show()
 **Lasso Regression Residuals:**
 
 * Residuals are similar to Ridge but show slightly more clustering near zero, indicating slightly better alignment with actual sale prices.
-* Outliers and deviations are still present for extreme values, similar to Ridge Regression.
+* Outliers and deviations are still present for extreme values, similar to Ridge Regression.\
+
+#### Model 4: Random Forest
+```python
+from sklearn.ensemble import RandomForestRegressor
+
+# Initialize the Random Forest Regressor
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Train the model
+rf_model.fit(X_train, y_train)
+
+# Predict on the test set
+y_pred_rf = rf_model.predict(X_test)
+
+# Evaluate the Random Forest model
+mae_rf = mean_absolute_error(y_test, y_pred_rf)
+mse_rf = mean_squared_error(y_test, y_pred_rf)
+rmse_rf = np.sqrt(mse_rf)
+r2_rf = r2_score(y_test, y_pred_rf)
+
+# Output the evaluation metrics for Random Forest model
+mae_rf, rmse_rf, r2_rf
+```
+### Random Forest Model Results:
+
+* Mean Absolute Error (MAE): $47,183
+* Root Mean Squared Error (RMSE): $82,561
+* R² Score: 0.935 (93.5% of variance in house prices explained)
+* Random Forest significantly outperforms Linear, Ridge, and Lasso Regression, achieving the highest R² score (93.5%) and lowest RMSE.
+* Much lower MAE suggests that predictions are closer to actual house prices.
+* Better non-linearity handling: Unlike linear models, Random Forest can capture complex relationships.
+
