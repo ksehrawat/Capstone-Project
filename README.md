@@ -937,7 +937,7 @@ Redfin_df_cleaned.to_csv(updated_file_path, index=False)
 updated_file_path
 ```
 
-### Model 4: Gradient Boost
+### Model 5: Gradient Boost
 ```python
 from sklearn.ensemble import GradientBoostingRegressor
 
@@ -1062,3 +1062,119 @@ plt.grid(True)
 plt.show()
 ```
 <img width="794" alt="Screenshot 2025-03-16 at 3 41 07 PM" src="https://github.com/user-attachments/assets/7f9c7295-27a0-4fef-80c3-c258d12f8658" />
+
+
+### Model 5: Decision Tree
+
+```python
+from sklearn.tree import DecisionTreeRegressor
+
+# Initialize and train the Decision Tree model
+dt_model = DecisionTreeRegressor(max_depth=10, min_samples_split=5, min_samples_leaf=2, random_state=42)
+dt_model.fit(X_train, y_train)
+
+# Predict on the test set using Decision Tree
+y_pred_dt = dt_model.predict(X_test)
+
+# Evaluate the Decision Tree model
+mae_dt = mean_absolute_error(y_test, y_pred_dt)
+mse_dt = mean_squared_error(y_test, y_pred_dt)
+rmse_dt = np.sqrt(mse_dt)
+r2_dt = r2_score(y_test, y_pred_dt)
+
+# Output the evaluation metrics for Decision Tree model
+mae_dt, rmse_dt, r2_dt
+```
+### Decision Tree Model Results:
+
+* Mean Absolute Error (MAE): $55,431
+* Root Mean Squared Error (RMSE): $94,439
+* R² Score: 0.915 (91.5% of variance in house prices explained)
+
+#### Hypertuning for Decision Tree Model
+```python
+from sklearn.model_selection import GridSearchCV
+
+# Define hyperparameter grid for Decision Tree
+param_grid_dt = {
+    'max_depth': [5, 10, 15, None],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4]
+}
+
+# Initialize the Decision Tree model
+dt_tuned = DecisionTreeRegressor(random_state=42)
+
+# Perform Grid Search with Cross Validation
+grid_search_dt = GridSearchCV(estimator=dt_tuned, param_grid=param_grid_dt,
+                              cv=3, scoring='neg_mean_squared_error', n_jobs=-1, verbose=2)
+
+# Fit model with Grid Search
+grid_search_dt.fit(X_train, y_train)
+
+# Get best parameters and best model
+best_params_dt = grid_search_dt.best_params_
+best_dt_model = grid_search_dt.best_estimator_
+
+# Predict on test set using the best model
+y_pred_best_dt = best_dt_model.predict(X_test)
+
+# Evaluate the tuned Decision Tree model
+mae_best_dt = mean_absolute_error(y_test, y_pred_best_dt)
+mse_best_dt = mean_squared_error(y_test, y_pred_best_dt)
+rmse_best_dt = np.sqrt(mse_best_dt)
+r2_best_dt = r2_score(y_test, y_pred_best_dt)
+
+# Output best parameters and evaluation metrics
+best_params_dt, mae_best_dt, rmse_best_dt, r2_best_dt
+```
+#### Optimized Decision Tree Model Results:
+
+#### Best Hyperparameters:
+* max_depth: 10
+* min_samples_leaf: 4
+* min_samples_split: 10
+
+#### Performance Metrics:
+* Mean Absolute Error (MAE): $55,267
+* Root Mean Squared Error (RMSE): $94,014
+* R² Score: 0.9156 (91.6% variance explained)
+
+#### Decision Tree Plot
+```python
+from sklearn.tree import plot_tree
+
+# Set up figure size for better visibility
+plt.figure(figsize=(20, 10))
+
+# Plot the decision tree
+plot_tree(best_dt_model, feature_names=selected_features, filled=True, rounded=True, fontsize=8)
+
+# Display the tree visualization
+plt.title("Decision Tree Structure")
+plt.show()
+```
+<img width="1607" alt="Screenshot 2025-03-16 at 3 48 14 PM" src="https://github.com/user-attachments/assets/1fde4e23-b0cd-4702-9466-e9b5fe1f669a" />
+
+### Save the file with the Decision Tree Model Predictions
+```python
+# Retrain the Decision Tree model due to execution state reset
+best_dt_model = DecisionTreeRegressor(max_depth=10, min_samples_split=10, min_samples_leaf=4, random_state=42)
+best_dt_model.fit(X_train, y_train)
+
+# Predict on the test set using the Decision Tree model
+y_pred_dt = best_dt_model.predict(X_test)
+
+# Add the predicted values as a new column in the dataset
+Redfin_df_cleaned.loc[X_test.index, 'predicted_median_sale_price_dt'] = y_pred_dt
+
+# Define the file path for saving the updated dataset
+updated_file_path_dt = "/content/drive/MyDrive/AI Capstone Project/Redfin_df_cleaned_with_dt_predictions.csv"
+
+# Save the dataset with Decision Tree predictions
+Redfin_df_cleaned.to_csv(updated_file_path_dt, index=False)
+
+# Provide the download link
+updated_file_path_dt
+```
+
