@@ -23,6 +23,17 @@ How can we leverage historical housing data and machine learning models to accur
 Several machine learning models were trained and evaluated based on Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² Score.
 
 Model Performance Comparison
+
+Linear Regression
+MAE ($): 
+PMSE($): 
+R² Score: 
+
+Ridge Regression
+MAE ($): 
+PMSE($): 
+R² Score:
+
 Model	MAE ($)	RMSE ($)	R² Score
 Linear Regression	99,144	136,041	0.823
 Ridge Regression	136,042	169,636	0.725
