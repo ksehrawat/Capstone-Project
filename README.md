@@ -907,4 +907,18 @@ best_params, mae_best_rf, rmse_best_rf, r2_best_rf
 ```
 <img width="568" alt="Screenshot 2025-03-16 at 2 52 16 PM" src="https://github.com/user-attachments/assets/87407b8f-8e89-4c27-9521-e6deacfacc69" />
 
+#### Actual vs. Predicted Values for Tuned Random Forest
+
+```python
+# Scatter plot: Actual vs. Predicted Values for Tuned Random Forest
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x=y_test, y=y_pred_best_rf, alpha=0.6)
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red')  # Perfect fit line
+plt.xlabel("Actual Median Sale Price")
+plt.ylabel("Predicted Median Sale Price")
+plt.title("Actual vs. Predicted Values (Tuned Random Forest)")
+plt.grid(True)
+plt.show()
+```
+
 
