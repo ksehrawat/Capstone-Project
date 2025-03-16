@@ -15,6 +15,18 @@ How can we leverage historical housing data and machine learning models to accur
 * Initial Dataset: NewRedfinDataSet.csv
 * Cleaned Dataset: Redfin_df_cleaned.csv
 
+## Data Exploration & Preprocessing
+* Dataset: NewRedfinDataSet.csv
+* Total Records: 66,577 → Cleaned and reduced after preprocessing.
+* Features: 50 columns (including location, property type, market trends, etc.).
+* Target Variable: median_sale_price
+
+### Data Cleaning Steps:
+* Handled missing values by removing or imputing them.
+* Removed outliers using the IQR method.
+* Feature engineering: Created log transformations, ratio features, and interaction variables.
+* Standardized and normalized numerical features to improve model performance.
+
 ### Python Code File
 
 * Juiter Notebook: Capstone.ipynb
