@@ -24,24 +24,7 @@ Several machine learning models were trained and evaluated based on Mean Absolut
 
 Model Performance Comparison
 
-Linear Regression
-MAE ($): 
-PMSE($): 
-R² Score: 
-
-Ridge Regression
-MAE ($): 
-PMSE($): 
-R² Score:
-
-Model	MAE ($)	RMSE ($)	R² Score
-Linear Regression	99,144	136,041	0.823
-Ridge Regression	136,042	169,636	0.725
-Lasso Regression	136,041	169,626	0.725
-Random Forest    	47,042	82,251	0.935
-Gradient Boosting 	49,690	83,438	0.933
-Decision Tree   	55,267	94,014	0.916
-
+<img width="602" alt="Screenshot 2025-03-16 at 2 09 31 PM" src="https://github.com/user-attachments/assets/afbd006f-ef0a-4528-b7aa-ccd1c5e9bbc8" />
 
 Key Insights:
 * Random Forest performed best with the lowest RMSE (82,251) and highest R² (0.935).
