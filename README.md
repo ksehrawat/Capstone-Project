@@ -44,9 +44,9 @@ Feature importance was analyzed across three models (Decision Tree, Random Fores
 
 ## Conclusion
 
-*The project successfully built a predictive model for house prices, with Random Forest being the best model.
-*Feature engineering and preprocessing played a crucial role in improving accuracy.
-*log_median_list_price has too much impact on the overall model so it is recommended to refine the model further by removing price related variables from the different models and do the comparison of the different model again.
+* The project successfully built a predictive model for house prices, with Random Forest being the best model.
+* Feature engineering and preprocessing played a crucial role in improving accuracy.
+* log_median_list_price and other price realted variables has too much impact on the overall model so it is recommended to refine the model further by removing price related variables from the different models.
 
 ## DataSet
 
