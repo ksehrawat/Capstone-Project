@@ -19,14 +19,14 @@ How can we leverage historical housing data and machine learning models to accur
 
 * Juiter Notebook: Capstone.ipynb
 
-### Model Training and Evaluation
+## Model Training and Evaluation
 Several machine learning models were trained and evaluated based on Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² Score.
 
-####Model Performance Comparison
+###Model Performance Comparison
 
 <img width="602" alt="Screenshot 2025-03-16 at 2 09 31 PM" src="https://github.com/user-attachments/assets/afbd006f-ef0a-4528-b7aa-ccd1c5e9bbc8" />
 
-Key Insights:
+*Key Insights:*
 * Random Forest performed best with the lowest RMSE (82,251) and highest R² (0.935).
 * Gradient Boosting was a close second (RMSE: 83,438, R²: 0.933).
 * Linear models (Ridge, Lasso, and Standard Linear Regression) performed poorly due to the complex relationships in housing data.
