@@ -907,7 +907,7 @@ best_params, mae_best_rf, rmse_best_rf, r2_best_rf
 ```
 <img width="568" alt="Screenshot 2025-03-16 at 2 52 16 PM" src="https://github.com/user-attachments/assets/87407b8f-8e89-4c27-9521-e6deacfacc69" />
 
-#### Actual vs. Predicted Values for Tuned Random Forest
+#### Actual vs. Predicted Values for Tuned Random Forest Model
 
 ```python
 # Scatter plot: Actual vs. Predicted Values for Tuned Random Forest
@@ -922,6 +922,20 @@ plt.show()
 ```
 ![1](https://github.com/user-attachments/assets/12d81989-e568-4333-a0b3-c1a040219ea1)
 
+### Save the file with the Random Forest Model Predictions
+```python
+# Add the predicted values as a new column in the dataset
+Redfin_df_cleaned.loc[X_test.index, 'predicted_median_sale_price'] = y_pred_best_rf
+
+# Define the file path for saving the updated dataset
+updated_file_path = "/content/drive/MyDrive/AI Capstone Project/Redfin_df_with_rf_predictions.csv"
+
+# Save the dataset with predictions
+Redfin_df_cleaned.to_csv(updated_file_path, index=False)
+
+# Provide the download link
+updated_file_path
+```
 
 ### Model 4: Gradient Boost
 ```python
@@ -951,3 +965,100 @@ mae_gb, rmse_gb, r2_gb
 * Mean Absolute Error (MAE): $49736.18
 * Root Mean Squared Error (RMSE): $83182.38
 * R² Score: 0.933 (93.3% of variance in house prices explained)
+
+#### Hypertuning for Gradient Boost Model
+```python
+from sklearn.model_selection import RandomizedSearchCV
+
+# Define hyperparameter grid for Gradient Boosting
+param_grid_gb = {
+    'n_estimators': [50, 100, 200],
+    'learning_rate': [0.01, 0.05, 0.1],
+    'max_depth': [3, 5, 7],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+    'subsample': [0.8, 1.0]
+}
+
+# Initialize the Gradient Boosting model
+gb_tuned = GradientBoostingRegressor(random_state=42)
+
+# Perform Randomized Search with Cross Validation
+random_search_gb = RandomizedSearchCV(estimator=gb_tuned, param_distributions=param_grid_gb,
+                                      n_iter=20, cv=3, scoring='neg_mean_squared_error',
+                                      n_jobs=-1, verbose=2, random_state=42)
+
+# Fit model with Randomized Search
+random_search_gb.fit(X_train, y_train)
+
+# Get best parameters and best model
+best_params_gb = random_search_gb.best_params_
+best_gb_model = random_search_gb.best_estimator_
+
+# Predict on test set using best model
+y_pred_best_gb = best_gb_model.predict(X_test)
+
+# Evaluate the tuned Gradient Boosting model
+mae_best_gb = mean_absolute_error(y_test, y_pred_best_gb)
+mse_best_gb = mean_squared_error(y_test, y_pred_best_gb)
+rmse_best_gb = np.sqrt(mse_best_gb)
+r2_best_gb = r2_score(y_test, y_pred_best_gb)
+
+# Output best parameters and evaluation metrics
+best_params_gb, mae_best_gb, rmse_best_gb, r2_best_gb
+```
+<img width="520" alt="Screenshot 2025-03-16 at 3 34 32 PM" src="https://github.com/user-attachments/assets/b94a29a9-d044-4ea2-a3cc-f669d2d962b4" />
+
+#### Actual vs. Predicted Values for Tuned Gradient Boost Model
+
+```python
+# Scatter plot: Actual vs. Predicted Values for Gradient Boosting Model
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x=y_test, y=y_pred_gb, alpha=0.6)
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red')  # Perfect fit line
+plt.xlabel("Actual Median Sale Price")
+plt.ylabel("Predicted Median Sale Price")
+plt.title("Actual vs. Predicted Values (Gradient Boosting Model)")
+plt.grid(True)
+plt.show()
+```
+<img width="783" alt="Screenshot 2025-03-16 at 3 37 51 PM" src="https://github.com/user-attachments/assets/fcf3977c-30e3-4c85-91c9-f565db0c023e" />
+
+### Save the file with the Gradient Boost Model Predictions
+```python
+# Predict on the test set using the Gradient Boosting model
+y_pred_gb = best_gb_model.predict(X_test)
+
+# Add the predicted values as a new column in the dataset
+Redfin_df_cleaned.loc[X_test.index, 'predicted_median_sale_price_gb'] = y_pred_gb
+
+# Define the file path for saving the updated dataset
+updated_file_path_gb = "/content/drive/MyDrive/AI Capstone Project/Redfin_df_cleaned_with_gb_predictions.csv"
+
+# Save the dataset with Gradient Boosting predictions
+Redfin_df_cleaned.to_csv(updated_file_path_gb, index=False)
+
+# Provide the download link
+updated_file_path_gb
+```
+#### Comparison Plot: Gradient Boosting Vs Random Forest Models
+```python
+plt.figure(figsize=(10, 6))
+
+# Plot for Tuned Random Forest
+plt.scatter(y_test, y_pred_best_rf, alpha=0.6, label='Random Forest')
+
+# Plot for Gradient Boosting
+plt.scatter(y_test, y_pred_best_gb, alpha=0.6, label='Gradient Boosting')
+
+# Perfect fit line
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red', label='Perfect Fit')
+
+plt.xlabel("Actual Median Sale Price")
+plt.ylabel("Predicted Median Sale Price")
+plt.title("Comparison Plot: Gradient Boosting vs Random Forest")
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+<img width="794" alt="Screenshot 2025-03-16 at 3 41 07 PM" src="https://github.com/user-attachments/assets/7f9c7295-27a0-4fef-80c3-c258d12f8658" />
