@@ -42,6 +42,11 @@ Feature importance was analyzed across three models (Decision Tree, Random Fores
 * Market trend variables (e.g., median_sale_price_mom, avg_sale_to_list) show moderate importance.
 * Variables like homes_sold and new_listings have very little impact on house prices.
 
+##Conclusion
+*The project successfully built a predictive model for house prices, with Random Forest being the best model.
+*Feature engineering and preprocessing played a crucial role in improving accuracy.
+*log_median_list_price has too much impact on the overall model so it is recommended to refine the model further by removing price related variables from the different models and do the comparison of the different model again.
+
 ## DataSet
 
 Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/news/data-center/) and then data was filetered furtner up to focus on the 3 states i.e. California, New York , and Texas. Initial DataSet (NewRedfinDataSet.csv) was stored in the Google Drive Folder so that it can used in Colab for further analysis.
