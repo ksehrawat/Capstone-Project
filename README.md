@@ -31,6 +31,16 @@ Several machine learning models were trained and evaluated based on Mean Absolut
 * Gradient Boosting was a close second (RMSE: 83,438, R²: 0.933).
 * Linear models (Ridge, Lasso, and Standard Linear Regression) performed poorly due to the complex relationships in housing data.
 
+##Feature Importance Analysis
+Feature importance was analyzed across three models (Decision Tree, Random Forest, and Gradient Boosting)
+<img width="734" alt="Screenshot 2025-03-16 at 2 15 26 PM" src="https://github.com/user-attachments/assets/b75ae977-be2d-4693-a8a0-5b19280d1633" />
+
+*Key Insights:*
+* List Price (log_median_list_price) is the most important predictor in all models.
+* Price per Square Foot (log_median_ppsf) is also highly correlated with house prices.
+* Market trend variables (e.g., median_sale_price_mom, avg_sale_to_list) show moderate importance.
+* Variables like homes_sold and new_listings have very little impact on house prices.
+
 ## DataSet
 
 Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/news/data-center/) and then data was filetered furtner up to focus on the 3 states i.e. California, New York , and Texas. Initial DataSet (NewRedfinDataSet.csv) was stored in the Google Drive Folder so that it can used in Colab for further analysis.
