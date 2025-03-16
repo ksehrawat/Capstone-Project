@@ -835,7 +835,7 @@ plt.show()
 * Residuals are similar to Ridge but show slightly more clustering near zero, indicating slightly better alignment with actual sale prices.
 * Outliers and deviations are still present for extreme values, similar to Ridge Regression.\
 
-#### Model 4: Random Forest
+### Model 4: Random Forest
 ```python
 from sklearn.ensemble import RandomForestRegressor
 
@@ -857,7 +857,7 @@ r2_rf = r2_score(y_test, y_pred_rf)
 # Output the evaluation metrics for Random Forest model
 mae_rf, rmse_rf, r2_rf
 ```
-### Random Forest Model Results:
+#### Random Forest Model Results:
 
 * Mean Absolute Error (MAE): $47,183
 * Root Mean Squared Error (RMSE): $82,561
@@ -865,4 +865,46 @@ mae_rf, rmse_rf, r2_rf
 * Random Forest significantly outperforms Linear, Ridge, and Lasso Regression, achieving the highest R² score (93.5%) and lowest RMSE.
 * Much lower MAE suggests that predictions are closer to actual house prices.
 * Better non-linearity handling: Unlike linear models, Random Forest can capture complex relationships.
+
+#### Hypertuning for Random Forest Model
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+# Define hyperparameter grid for Random Forest
+param_grid = {
+    'n_estimators': [50, 100, 200],
+    'max_depth': [10, 20, None],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4]
+}
+
+# Initialize Random Forest Regressor
+rf_tuned = RandomForestRegressor(random_state=42)
+
+# Perform Grid Search with Cross Validation
+grid_search = GridSearchCV(estimator=rf_tuned, param_grid=param_grid,
+                           cv=3, scoring='neg_mean_squared_error', n_jobs=-1, verbose=2)
+
+# Fit model
+grid_search.fit(X_train, y_train)
+
+# Get best parameters and best model
+best_params = grid_search.best_params_
+best_rf_model = grid_search.best_estimator_
+
+# Predict on test set using best model
+y_pred_best_rf = best_rf_model.predict(X_test)
+
+# Evaluate the tuned Random Forest model
+mae_best_rf = mean_absolute_error(y_test, y_pred_best_rf)
+mse_best_rf = mean_squared_error(y_test, y_pred_best_rf)
+rmse_best_rf = np.sqrt(mse_best_rf)
+r2_best_rf = r2_score(y_test, y_pred_best_rf)
+
+# Output best parameters and evaluation metrics
+best_params, mae_best_rf, rmse_best_rf, r2_best_rf
+```
+<img width="568" alt="Screenshot 2025-03-16 at 2 52 16 PM" src="https://github.com/user-attachments/assets/87407b8f-8e89-4c27-9521-e6deacfacc69" />
+
 
