@@ -14,6 +14,9 @@ How can we leverage historical housing data and machine learning models to accur
 
 * Initial Dataset: NewRedfinDataSet.csv
 * Cleaned Dataset: Redfin_df_cleaned.csv
+* Random Forest Model Predictions: Redfin_df_with_rf_predictions.csv
+* Gradiant Boost Model Predictions: Redfin_df_cleaned_with_gb_predictions.csv
+* Decision Tree Model Predictions: Redfin_df_cleaned_with_dt_predictions.csv
 
 ### Data Exploration & Preprocessing
 * Dataset: NewRedfinDataSet.csv
