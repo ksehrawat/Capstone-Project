@@ -922,3 +922,32 @@ plt.show()
 ```
 ![1](https://github.com/user-attachments/assets/12d81989-e568-4333-a0b3-c1a040219ea1)
 
+
+### Model 4: Gradient Boost
+```python
+from sklearn.ensemble import GradientBoostingRegressor
+
+# Initialize the Gradient Boosting model with optimized parameters
+gb_model = GradientBoostingRegressor(n_estimators=100, learning_rate=0.1, max_depth=5, random_state=42)
+
+# Train the model
+gb_model.fit(X_train, y_train)
+
+# Predict on the test set
+y_pred_gb = gb_model.predict(X_test)
+
+# Evaluate the Gradient Boosting model
+mae_gb = mean_absolute_error(y_test, y_pred_gb)
+mse_gb = mean_squared_error(y_test, y_pred_gb)
+rmse_gb = np.sqrt(mse_gb)
+r2_gb = r2_score(y_test, y_pred_gb)
+
+# Output the evaluation metrics for Gradient Boosting model
+mae_gb, rmse_gb, r2_gb
+```
+
+#### Gradient Boost Model Results:
+
+* Mean Absolute Error (MAE): $49736.18
+* Root Mean Squared Error (RMSE): $83182.38
+* R² Score: 0.933 (93.3% of variance in house prices explained)
