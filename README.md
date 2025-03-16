@@ -12,6 +12,8 @@ How can we leverage historical housing data and machine learning models to accur
 
 ### Data Files
 
+Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/news/data-center/) and then data was filetered furtner up to focus on the 3 states i.e. California, New York , and Texas. Initial DataSet (NewRedfinDataSet.csv) was stored in the Google Drive Folder so that it can used in Colab for further analysis.
+
 * Initial Dataset: NewRedfinDataSet.csv
 * Cleaned Dataset: Redfin_df_cleaned.csv
 * Random Forest Model Predictions: Redfin_df_with_rf_predictions.csv
@@ -63,9 +65,8 @@ Feature importance was analyzed across three models (Decision Tree, Random Fores
 * Feature engineering and preprocessing played a crucial role in improving accuracy.
 * log_median_list_price and other price realted variables has too much impact on the overall model so it is recommended to refine the model further by removing price related variables from the different models.
 
-## DataSet
 
-Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/news/data-center/) and then data was filetered furtner up to focus on the 3 states i.e. California, New York , and Texas. Initial DataSet (NewRedfinDataSet.csv) was stored in the Google Drive Folder so that it can used in Colab for further analysis.
+
 
 ## Python Code
 
