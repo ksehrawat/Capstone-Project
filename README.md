@@ -920,5 +920,5 @@ plt.title("Actual vs. Predicted Values (Tuned Random Forest)")
 plt.grid(True)
 plt.show()
 ```
-
+![1](https://github.com/user-attachments/assets/12d81989-e568-4333-a0b3-c1a040219ea1)
 
