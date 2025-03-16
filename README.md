@@ -19,6 +19,24 @@ How can we leverage historical housing data and machine learning models to accur
 
 * Juiter Notebook: Capstone1.ipynb
 
+### Model Training and Evaluation
+Several machine learning models were trained and evaluated based on Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² Score.
+
+Model Performance Comparison
+Model	MAE ($)	RMSE ($)	R² Score
+Linear Regression	99,144	136,041	0.823
+Ridge Regression	136,042	169,636	0.725
+Lasso Regression	136,041	169,626	0.725
+Random Forest    	47,042	82,251	0.935
+Gradient Boosting 	49,690	83,438	0.933
+Decision Tree   	55,267	94,014	0.916
+
+
+Key Insights:
+* Random Forest performed best with the lowest RMSE (82,251) and highest R² (0.935).
+* Gradient Boosting was a close second (RMSE: 83,438, R²: 0.933).
+* Linear models (Ridge, Lasso, and Standard Linear Regression) performed poorly due to the complex relationships in housing data.
+
 ## DataSet
 
 Initial DatSet was downloaded from the Redfin Website (https://www.redfin.com/news/data-center/) and then data was filetered furtner up to focus on the 3 states i.e. California, New York , and Texas. Initial DataSet (NewRedfinDataSet.csv) was stored in the Google Drive Folder so that it can used in Colab for further analysis.
