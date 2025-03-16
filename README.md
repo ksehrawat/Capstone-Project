@@ -17,7 +17,7 @@ How can we leverage historical housing data and machine learning models to accur
 
 ### Python Code File
 
-* Juiter Notebook: Capstone1.ipynb
+* Juiter Notebook: Capstone.ipynb
 
 ### Model Training and Evaluation
 Several machine learning models were trained and evaluated based on Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² Score.
